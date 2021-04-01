@@ -5,3 +5,5 @@ matplotlib.pyplot
 datetime
 sklearn.model_selection
 sklearn
+sklearn.linear_model
+sklearn.metrics
