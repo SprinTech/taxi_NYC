@@ -23,7 +23,7 @@ df['day_of_week'] = df['pickup_datetime'].dt.day_name()
 
 # Calcul de la distance
 def haversine_vectorize(lon1, lat1, lon2, lat2):
-
+    """ return the distance in km etween two point with longitude and latitude defined"""
     lon1, lat1, lon2, lat2 = map(np.radians, [lon1, lat1, lon2, lat2])
 
     newlon = lon2 - lon1
