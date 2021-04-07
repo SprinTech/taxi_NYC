@@ -6,4 +6,5 @@ datetime
 sklearn.model_selection
 sklearn
 sklearn.linear_model
+sklearn.preprocessing
 sklearn.metrics
