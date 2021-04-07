@@ -37,6 +37,12 @@ def haversine_vectorize(lon1, lat1, lon2, lat2):
     
 df['distance'] = round(haversine_vectorize(df['pickup_longitude'],df['pickup_latitude'],df['dropoff_longitude'],df['dropoff_latitude']),2)
 
+# Encodage du jour de la semaine
+day_df = pd.DataFrame(df, columns=['day_of_week'])
+dum_df = pd.get_dummies(day_df, columns=["day_of_week"], prefix=["day_is"] )
+df = df.join(dum_df)
+
+
 # Calcul de la vitesse moyenne
 def vitesse(d,t):
     v= round((d*3600)/t,2)
@@ -58,3 +64,4 @@ df['time_slot'] = df['pickup_datetime'].apply(lambda x : "0-3h" if x.hour < 4
                                                 else "20-23h")
 
 df.to_csv('cleaned_data.csv', index = False)
+
